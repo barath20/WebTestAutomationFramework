@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="47" started-at="2020-04-22T03:18:10Z" finished-at="2020-04-22T03:18:10Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="47" started-at="2020-04-22T03:18:10Z" finished-at="2020-04-22T03:18:10Z">
+      <class name="edureka.HomePage">
+        <test-method status="PASS" signature="f1()[pri:0, instance:edureka.HomePage@47f37ef1]" name="f1" duration-ms="16" started-at="2020-04-21T22:18:10Z" finished-at="2020-04-21T22:18:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f1 -->
+        <test-method status="PASS" signature="f3()[pri:0, instance:edureka.HomePage@47f37ef1]" name="f3" duration-ms="0" started-at="2020-04-21T22:18:10Z" finished-at="2020-04-21T22:18:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f3 -->
+        <test-method status="PASS" signature="f2()[pri:0, instance:edureka.HomePage@47f37ef1]" name="f2" duration-ms="0" started-at="2020-04-21T22:18:10Z" finished-at="2020-04-21T22:18:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f2 -->
+      </class> <!-- edureka.HomePage -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
