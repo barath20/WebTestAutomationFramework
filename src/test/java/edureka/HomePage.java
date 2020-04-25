@@ -9,7 +9,7 @@ public class HomePage {
 	Elements ele = new Elements();
   @Test
   public void f1() {
-	  ele.click();
+	  ele.click("//a[contains(@class,'giTrackElementHeader') and contains(text(),'courses')]");
 	  System.out.println("Test Ones");
   }
   @Test

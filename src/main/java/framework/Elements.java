@@ -1,9 +1,15 @@
 package framework;
 
-public class Elements {
+import org.openqa.selenium.By;
 
-	public void click()
-	{
-		System.out.println("Inside click !!!");
+public class Elements extends LaunchWebPage {
+
+	public void click(String element) {
+		System.out.println("Inside click !!!" + element);
+		wd.findElement(By.xpath(element)); 
+	}
+	
+	public void sendText() {
+		System.out.println("Inside sendText !!!");		
 	}
 }
