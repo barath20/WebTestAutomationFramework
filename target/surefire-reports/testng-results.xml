@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="47" started-at="2020-04-22T03:18:10Z" finished-at="2020-04-22T03:18:10Z">
+  <suite name="Suite" duration-ms="63" started-at="2020-04-24T03:20:07Z" finished-at="2020-04-24T03:20:07Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="47" started-at="2020-04-22T03:18:10Z" finished-at="2020-04-22T03:18:10Z">
+    <test name="Test" duration-ms="63" started-at="2020-04-24T03:20:07Z" finished-at="2020-04-24T03:20:07Z">
+      <class name="edureka.Setup">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:edureka.Setup@b684286]" name="beforeSuite" is-config="true" duration-ms="21006" started-at="2020-04-23T22:19:46Z" finished-at="2020-04-23T22:20:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+      </class> <!-- edureka.Setup -->
+      <class name="edureka.Login">
+        <test-method status="PASS" signature="f()[pri:0, instance:edureka.Login@3f3afe78]" name="f" duration-ms="0" started-at="2020-04-23T22:20:07Z" finished-at="2020-04-23T22:20:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f -->
+      </class> <!-- edureka.Login -->
       <class name="edureka.HomePage">
-        <test-method status="PASS" signature="f1()[pri:0, instance:edureka.HomePage@47f37ef1]" name="f1" duration-ms="16" started-at="2020-04-21T22:18:10Z" finished-at="2020-04-21T22:18:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- f1 -->
-        <test-method status="PASS" signature="f3()[pri:0, instance:edureka.HomePage@47f37ef1]" name="f3" duration-ms="0" started-at="2020-04-21T22:18:10Z" finished-at="2020-04-21T22:18:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- f3 -->
-        <test-method status="PASS" signature="f2()[pri:0, instance:edureka.HomePage@47f37ef1]" name="f2" duration-ms="0" started-at="2020-04-21T22:18:10Z" finished-at="2020-04-21T22:18:10Z">
+        <test-method status="PASS" signature="f2()[pri:0, instance:edureka.HomePage@880ec60]" name="f2" duration-ms="8" started-at="2020-04-23T22:20:07Z" finished-at="2020-04-23T22:20:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f2 -->
+        <test-method status="PASS" signature="f1()[pri:0, instance:edureka.HomePage@880ec60]" name="f1" duration-ms="0" started-at="2020-04-23T22:20:07Z" finished-at="2020-04-23T22:20:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f1 -->
+        <test-method status="PASS" signature="f3()[pri:0, instance:edureka.HomePage@880ec60]" name="f3" duration-ms="4" started-at="2020-04-23T22:20:07Z" finished-at="2020-04-23T22:20:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- f3 -->
       </class> <!-- edureka.HomePage -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
