@@ -16,6 +16,5 @@ public class HomePage extends PageFactory {
 		wd = lwp.SetWebPage();
 		Elements ele = new Elements(wd);
 		ele.click("//input[@id='bmwradio']");
-		System.out.println("Test Ones");
   }
 }

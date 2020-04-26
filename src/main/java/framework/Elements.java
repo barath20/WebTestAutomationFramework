@@ -8,17 +8,13 @@ public class Elements extends PageFactory {
 	WebDriver wd;
 	public Elements(WebDriver wd1) {
 		wd = wd1;
-		
 	}
 	
 	public void click(String element) {
-		System.out.println("Inside click !!!" + element);
-		System.out.println("Value of a = "+a);
-	//	wd.findElement(By.xpath(element)).click();
-		wd.findElement(By.xpath("//input[@id='bmwradio']")).click();
+		wd.findElement(By.xpath(element)).click();
 	}
 	
-	public void sendText() {
-		System.out.println("Inside sendText !!!");		
+	public void SendKeys(String element, String keys) {
+		wd.findElement(By.xpath(element)).sendKeys(keys);	
 	}
 }
