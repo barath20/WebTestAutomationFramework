@@ -9,7 +9,7 @@ public class Setup {
   public void beforeSuite() {
 	  
 	  LaunchWebPage lwp = new LaunchWebPage();
-	  lwp.SetAndLaunch();
+	//  lwp.SetAndLaunch();
 	  System.out.println("Inside suite");
   }
 
