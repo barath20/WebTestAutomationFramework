@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 public class InitialSetup {
 	
 	public WebDriver wd;
-	public int a;
 
 	public WebDriver SetWebPage() {
 		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");

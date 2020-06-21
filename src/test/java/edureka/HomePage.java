@@ -8,8 +8,6 @@ import framework.PageDriver;
 
 public class HomePage extends PageDriver {
 	
-	public WebDriver wd;
-	
   @Test
   public void TopRibbon() throws Throwable {
 
@@ -18,7 +16,10 @@ public class HomePage extends PageDriver {
 		PageDriver pD = new PageDriver();
 		pD.Driver(wd);
 //		wd.findElement(By.xpath("//input[@id='bmwradio']"));		
-		pD.click("//input[@id='bmwradio']","xpath");
-		System.out.println("A= " + a);
+		pD.Click("//input[@id='bmwradio']",Locator.xpath);
+		pD.Select("//select[@id='carselect']",1,Locator.xpath);
+		pD.Select("//select[@id='multiple-select-example']",1,Locator.xpath);
+		pD.Click("//input[@id='hondacheck']", Locator.xpath);
+
   }
 }
