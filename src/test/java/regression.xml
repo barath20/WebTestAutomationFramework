@@ -3,9 +3,7 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="edureka.Setup"/>
       <class name="edureka.HomePage"/> 	
-      <class name="edureka.Login"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

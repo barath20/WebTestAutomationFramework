@@ -17,8 +17,8 @@ public class HomePage extends PageDriver {
 		pD.Driver(wd);
 //		wd.findElement(By.xpath("//input[@id='bmwradio']"));		
 		pD.Click("//input[@id='bmwradio']",Locator.xpath);
-		pD.Select("//select[@id='carselect']",1,Locator.xpath);
-		pD.Select("//select[@id='multiple-select-example']",1,Locator.xpath);
+		pD.Selects("//select[@id='carselect']",1,Locator.xpath);
+		pD.Selects("//select[@id='multiple-select-example']",1,Locator.xpath);
 		pD.Click("//input[@id='hondacheck']", Locator.xpath);
 
   }

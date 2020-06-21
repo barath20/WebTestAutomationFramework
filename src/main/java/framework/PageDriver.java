@@ -54,8 +54,8 @@ public class PageDriver extends InitialSetup {
 		}	
 	}
 	
-	//	Select() - Expansion of Selenium Select()
-	public void Select(String element, int position,Locator locator) {
+	//	Selects() - Expansion of Selenium Select()
+	public void Selects(String element, int position,Locator locator) {
 		try {
 			Select sl = new Select(wd.findElement(locate(element,locator)));
 			sl.selectByIndex(position);

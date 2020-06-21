@@ -12,7 +12,6 @@ public class InitialSetup {
 		wd = new ChromeDriver();
 		wd.get("https://learn.letskodeit.com/p/practice");
 		wd.manage().window().maximize();
-		a = 10;
 		return wd;
 	}
 }
