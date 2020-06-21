@@ -1,20 +1,24 @@
 package edureka;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import framework.Elements;
-import framework.LaunchWebPage;
-import framework.PageFactory;
+import framework.InitialSetup;
+import framework.PageDriver;
 
-public class HomePage extends PageFactory {
+public class HomePage extends PageDriver {
 	
+	public WebDriver wd;
 	
   @Test
-  public void TopRibbon() {
-	    WebDriver wd;
-	    LaunchWebPage lwp =new LaunchWebPage();
+  public void TopRibbon() throws Throwable {
+
+	    InitialSetup lwp =new InitialSetup();
 		wd = lwp.SetWebPage();
-		Elements ele = new Elements(wd);
-		ele.click("//input[@id='bmwradio']");
+		PageDriver pD = new PageDriver();
+		pD.Driver(wd);
+//		wd.findElement(By.xpath("//input[@id='bmwradio']"));		
+		pD.click("//input[@id='bmwradio']","xpath");
+		System.out.println("A= " + a);
   }
 }

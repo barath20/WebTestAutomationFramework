@@ -2,13 +2,13 @@ package edureka;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeSuite;
-import framework.LaunchWebPage;
+import framework.InitialSetup;
 
 public class Setup {
   @BeforeSuite
   public void beforeSuite() {
 	  
-	  LaunchWebPage lwp = new LaunchWebPage();
+	  InitialSetup lwp = new InitialSetup();
 	//  lwp.SetAndLaunch();
 	  System.out.println("Inside suite");
   }
