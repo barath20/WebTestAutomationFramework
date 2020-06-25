@@ -34,7 +34,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/main/java/framework/Elements.java"/>
 	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar"/>
 	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/libs/commons-exec-1.3.jar"/>
 	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/libs/guava-25.0-jre.jar"/>
@@ -42,5 +41,6 @@
 	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/libs/okio-1.14.0.jar"/>
 	<classpathentry kind="lib" path="D:/Software/cH/poi-4.1.2.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/Software/commons-io-2.7/commons-io-2.7.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

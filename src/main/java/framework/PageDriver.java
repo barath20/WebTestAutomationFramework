@@ -1,9 +1,15 @@
 package framework;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class PageDriver extends InitialSetup {
@@ -73,4 +79,22 @@ public class PageDriver extends InitialSetup {
 //			System.out.println("No such element " + element);
 //		}	
 //	}
+	
+	// TakeScreenShot() - Takes screen shot
+	public void TakeScreenShot()  {
+		String filename = "Error.png";
+		System.out.println("Inside tss");
+		String directory = System.getProperty("user.dir") + "//screenshots//";
+		System.out.println("Inside tss");
+		try {
+		File sourceFile =((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
+		
+			System.out.println("Inside tss");
+			FileUtils.copyFile(sourceFile,new File(directory + filename));
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

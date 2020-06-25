@@ -6,6 +6,8 @@ import org.testng.ITestResult;
 
 
 public class Reporting implements ITestListener {
+	
+	public PageDriver pd;
 
 	public void onTestStart(ITestResult result) {
 		System.out.println("Inside OnTestStart");		
@@ -15,9 +17,14 @@ public class Reporting implements ITestListener {
 		System.out.println("Inside OnTestSuccess");		
 	}
 
-	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+	public void onTestFailure(ITestResult result)  {
+		try {
+			System.out.println("Inside OnTestFailure");
+//			pd.TakeScreenShot();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void onTestSkipped(ITestResult result) {
