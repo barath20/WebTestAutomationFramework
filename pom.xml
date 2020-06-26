@@ -13,7 +13,8 @@
                 <configuration>
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>./src/test/java/regression.xml</suiteXmlFile> 
+                       <!--  <suiteXmlFile>${Project}</suiteXmlFile> -->
+                       <suiteXmlFile>./src/test/java/makeMyTrip.xml</suiteXmlFile> 
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

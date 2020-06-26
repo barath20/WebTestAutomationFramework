@@ -1,4 +1,4 @@
-package edureka;
+package letKodeIt;
 
 import org.testng.annotations.Test;
 

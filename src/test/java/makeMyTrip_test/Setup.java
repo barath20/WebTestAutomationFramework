@@ -1,4 +1,4 @@
-package edureka;
+package makeMyTrip_test;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -9,12 +9,12 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import framework.InitialSetup;
 import framework.PageDriver;
+import makeMyTrip.SearchFlight;
 
 public class Setup extends PageDriver {
 	
 	public static PageDriver pD;
-	public static ExtentReports report;
-	public static ExtentTest test;
+	public SearchFlight searchFlight;
 	
   @BeforeSuite
   public void beforeSuite() {
@@ -22,7 +22,7 @@ public class Setup extends PageDriver {
 	  InitialSetup iS = new InitialSetup(); 
 	  System.out.println("Inside suite");
 	  pD = new PageDriver();
-	  pD.Driver(iS.SetWebPage());
+	  pD.Driver(iS.SetWebPage("https://www.makemytrip.com/flights/"));
 	  
 	  report = new ExtentReports("eReport.html");
 	  test = report.startTest("Hello Report");

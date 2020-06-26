@@ -3,9 +3,9 @@ package framework;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import com.relevantcodes.extentreports.LogStatus;
 
-
-public class Reporting implements ITestListener {
+public class Reporting extends PageDriver implements ITestListener {
 	
 	public PageDriver pd;
 
@@ -14,10 +14,12 @@ public class Reporting implements ITestListener {
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("Inside OnTestSuccess");		
+		System.out.println("Inside OnTestSuccess");	
+		test.log(LogStatus.PASS, "Inside Pass...");
 	}
 
 	public void onTestFailure(ITestResult result)  {
+		test.log(LogStatus.FAIL, "Inside Fail...");
 		try {
 			System.out.println("Inside OnTestFailure");
 //			pd.TakeScreenShot();

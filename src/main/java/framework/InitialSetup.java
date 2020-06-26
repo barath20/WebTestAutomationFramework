@@ -7,10 +7,10 @@ public class InitialSetup {
 	
 	public WebDriver wd;
 
-	public WebDriver SetWebPage() {
+	public WebDriver SetWebPage(String url) {
 		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
 		wd = new ChromeDriver();
-		wd.get("https://learn.letskodeit.com/p/practice");
+		wd.get(url);
 		wd.manage().window().maximize();
 		return wd;
 	}

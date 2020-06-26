@@ -2,6 +2,8 @@ package framework;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
@@ -10,11 +12,18 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class PageDriver extends InitialSetup {
 	
 	public enum Locator {xpath, name, id, linkText, partialLinkText, className, tagName, cssSelector}
+	public static ExtentReports report;
+	public static ExtentTest test;
 	
 	public void Driver(WebDriver wd) {
 		this.wd = wd;
@@ -48,6 +57,7 @@ public class PageDriver extends InitialSetup {
 			wd.findElement(locate(element,locator)).click();
 		} catch (NoSuchElementException e) {
 			System.out.println("No such element " + element);
+			test.log(LogStatus.FAIL,"No such element ");
 		}
 	}
 	
@@ -96,5 +106,16 @@ public class PageDriver extends InitialSetup {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	//FindElements() - Expansion of Selenium findelements()
+	public void FindElements(String element, int position,Locator locator) {
+		try {
+			List<WebElement> findEle = new ArrayList<WebElement>();
+			findEle = wd.findElements(locate(element,locator));
+			for(WebElement w : findEle) System.out.println("Find ele = " + w.getText()); 
+		} catch (Exception e) {
+			System.out.println("No such element " + element);
+		}	
 	}
 }

@@ -6,8 +6,8 @@
   </listeners>
   <test name="Test">
     <classes>
-      <class name="letKodeIt.Setup"/>
-      <class name="letKodeIt.HomePage"/> 	
+      <class name="makeMyTrip_test.Setup"/>
+      <class name="makeMyTrip_test.TC_flights_home"/> 	
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
