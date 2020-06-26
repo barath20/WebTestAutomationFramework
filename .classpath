@@ -42,5 +42,6 @@
 	<classpathentry kind="lib" path="D:/Software/cH/poi-4.1.2.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/Software/commons-io-2.7/commons-io-2.7.jar"/>
+	<classpathentry kind="lib" path="D:/Software/cH/extentreports-2.40.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
