@@ -118,4 +118,13 @@ public class PageDriver extends InitialSetup {
 			System.out.println("No such element " + element);
 		}	
 	}
+	//Calendar() - Calendar selection 
+	public void Calendar(String element, String date,Locator locator) {
+		try {
+			wd.findElement(locate(element,locator)).sendKeys(date);
+		} catch (Exception e) {
+			System.out.println("No such element " + element);
+		}	
+		
+	}
 }
