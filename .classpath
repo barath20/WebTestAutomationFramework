@@ -44,5 +44,7 @@
 	<classpathentry kind="lib" path="D:/Software/commons-io-2.7/commons-io-2.7.jar"/>
 	<classpathentry kind="lib" path="D:/Software/cH/extentreports-2.40.2.jar"/>
 	<classpathentry kind="lib" path="D:/Software/cH/testng-6.8.8.jar"/>
+	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -24,14 +24,14 @@ public class Setup extends PageDriver {
 	  pD = new PageDriver();
 	  pD.Driver(iS.SetWebPage("https://www.makemytrip.com/flights/"));
 	  
-	  report = new ExtentReports("eReport.html");
-	  test = report.startTest("Hello Report");
+	  extendReport = new ExtentReports("eReport.html");
+	  extendTest = extendReport.startTest("Hello Report");
 
   }
   
   @AfterSuite
   public void afterSuite() {
-	  report.endTest(test);
-	  report.flush();
+	  extendReport.endTest(extendTest);
+	  extendReport.flush();
   }
 }

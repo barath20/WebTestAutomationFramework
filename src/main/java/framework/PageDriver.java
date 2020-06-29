@@ -22,8 +22,8 @@ import com.relevantcodes.extentreports.LogStatus;
 public class PageDriver extends InitialSetup {
 	
 	public enum Locator {xpath, name, id, linkText, partialLinkText, className, tagName, cssSelector}
-	public static ExtentReports report;
-	public static ExtentTest test;
+	public static ExtentReports extendReport;
+	public static ExtentTest extendTest;
 	
 	public void Driver(WebDriver wd) {
 		this.wd = wd;
@@ -57,7 +57,7 @@ public class PageDriver extends InitialSetup {
 			wd.findElement(locate(element,locator)).click();
 		} catch (NoSuchElementException e) {
 			System.out.println("No such element " + element);
-			test.log(LogStatus.FAIL,"No such element ");
+			extendTest.log(LogStatus.FAIL,"No such element ");
 		}
 	}
 	
@@ -109,21 +109,24 @@ public class PageDriver extends InitialSetup {
 	}
 	
 	//FindElements() - Expansion of Selenium findelements()
-	public void FindElements(String element, int position,Locator locator) {
+	public void FindElements(String element, Locator locator, String innerElement, Locator innerLocator) {
 		try {
-			List<WebElement> findEle = new ArrayList<WebElement>();
-			findEle = wd.findElements(locate(element,locator));
-			for(WebElement w : findEle) System.out.println("Find ele = " + w.getText()); 
+			List<WebElement> we = (wd.findElement(locate(element,locator))).findElements(locate(innerElement,innerLocator));
+//			List<WebElement> findEle = new ArrayList<WebElement>();
+//			findEle = wd.findElements(locate(element,locator));
+			for(WebElement w : we) System.out.println("Find ele = " + w.getText()); 
 		} catch (Exception e) {
 			System.out.println("No such element " + element);
 		}	
 	}
 	//Calendar() - Calendar selection 
-	public void Calendar(String element, String date,Locator locator) {
+	public void GetAtt(String element,Locator locator) {
 		try {
-			wd.findElement(locate(element,locator)).sendKeys(date);
+			List<WebElement> we = (wd.findElement(locate(element,locator))).findElements(By.tagName("li"));
+			for(WebElement w : we)
+			System.out.println(w.getText());
 		} catch (Exception e) {
-			System.out.println("No such element " + element);
+			System.out.println("GetAtt: No such element " + element);
 		}	
 		
 	}

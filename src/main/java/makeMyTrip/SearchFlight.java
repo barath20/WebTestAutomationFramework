@@ -18,6 +18,7 @@ public class SearchFlight {
 	public void flightFrom() throws Exception {
 		pageDriver.Click("//input[@id='fromCity']",Locator.xpath);
 		pageDriver.SendKeys("//input[@placeholder='From']","BOM",Locator.xpath);
+		pageDriver.FindElements("//ul[@role='listbox']",Locator.xpath,"li",Locator.tagName);
 		pageDriver.Click("//p[contains(text(),'Mumbai')]",Locator.xpath);
 	}
 	
@@ -29,7 +30,7 @@ public class SearchFlight {
 	
 	public void departureDate() throws Exception {
 		pageDriver.Click("//span[contains(text(),'DEPARTURE')]",Locator.xpath);
-		pageDriver.Click("//div[@aria-label='Sat Jun 27 2020']", Locator.xpath);
+		pageDriver.Click("//div[@aria-label='Mon Jun 29 2020']", Locator.xpath);
 		
 	}
 	
@@ -40,6 +41,8 @@ public class SearchFlight {
 	
 	public void flightSearch() throws Exception {
 		pageDriver.Click("//a[contains(text(),'Search')]",Locator.xpath);
+		Thread.sleep(6000);
+		pageDriver.TakeScreenShot();
 	}
 
 }
