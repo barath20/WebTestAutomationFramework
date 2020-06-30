@@ -13,6 +13,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -24,6 +25,7 @@ public class PageDriver extends InitialSetup {
 	public enum Locator {xpath, name, id, linkText, partialLinkText, className, tagName, cssSelector}
 	public static ExtentReports extendReport;
 	public static ExtentTest extendTest;
+	public static Actions action;
 	
 	public void Driver(WebDriver wd) {
 		this.wd = wd;
@@ -44,82 +46,79 @@ public class PageDriver extends InitialSetup {
 			else throw new Exception();
 		}
 		catch(Exception e) {
-			System.out.println("No such locator " + locator);
+			extendTest.log(LogStatus.ERROR,"No such locator " + locator);
 		}
 		finally {
 			return By.xpath(element);
 		}
 	}
 	
+//	FindElement() - Expansion of Selenium findElement()
+	public WebElement FindElement(By by) {
+		try {
+			return wd.findElement(by);
+		} catch (NoSuchElementException e) {
+			extendTest.log(LogStatus.ERROR,"No such element " + by);
+		}
+		return null;
+	}
+	
 	//	Click() - Expansion of Selenium click() - For radioButton and checkBox
 	public void Click(String element,Locator locator) throws Exception {
 		try {
-			wd.findElement(locate(element,locator)).click();
+			FindElement(locate(element,locator)).click();
 		} catch (NoSuchElementException e) {
-			System.out.println("No such element " + element);
-			extendTest.log(LogStatus.FAIL,"No such element ");
+			extendTest.log(LogStatus.ERROR,"No such element " + element);
 		}
 	}
 	
 	//	SendKeys() - Expansion of Selenium SendKeys()
 	public void SendKeys(String element, String keys,Locator locator) {
 		try {
-			wd.findElement(locate(element,locator)).sendKeys(keys);
+			FindElement(locate(element,locator)).sendKeys(keys);
 		} catch (Exception e) {
-			System.out.println("No such element " + element);
+			extendTest.log(LogStatus.ERROR,"No such element " + element);
 		}	
 	}
 	
 	//	Selects() - Expansion of Selenium Select()
 	public void Selects(String element, int position,Locator locator) {
 		try {
-			Select sl = new Select(wd.findElement(locate(element,locator)));
+			Select sl = new Select(FindElement(locate(element,locator)));
 			sl.selectByIndex(position);
 		} catch (Exception e) {
-			System.out.println("No such element " + element);
+			extendTest.log(LogStatus.ERROR,"No such element " + element);
 		}	
 	}
 
-	//	DropDown() - Expansion of Selenium DropDown()
-//	public void MultiSelect(String element, int position,String locator) {
-//		try {
-//			Select sl = new Select(wd.findElement(locate(element,locator)));
-//			sl.selectByIndex(position);
-//		} catch (Exception e) {
-//			System.out.println("No such element " + element);
-//		}	
-//	}
-	
 	// TakeScreenShot() - Takes screen shot
 	public void TakeScreenShot()  {
 		String filename = "Error.png";
-		System.out.println("Inside tss");
 		String directory = System.getProperty("user.dir") + "//screenshots//";
-		System.out.println("Inside tss");
 		try {
-		File sourceFile =((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
-		
-			System.out.println("Inside tss");
+			File sourceFile =((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(sourceFile,new File(directory + filename));
-
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			extendTest.log(LogStatus.ERROR,"Error during screenshot...");
 		}
 	}
 	
 	//FindElements() - Expansion of Selenium findelements()
-	public void FindElements(String element, Locator locator, String innerElement, Locator innerLocator) {
+	public void FindElements(String element, Locator locator, String innerElement, Locator innerLocator, String string) {
 		try {
-			List<WebElement> we = (wd.findElement(locate(element,locator))).findElements(locate(innerElement,innerLocator));
-//			List<WebElement> findEle = new ArrayList<WebElement>();
-//			findEle = wd.findElements(locate(element,locator));
-			for(WebElement w : we) System.out.println("Find ele = " + w.getText()); 
+			List<WebElement> we = (FindElement(locate(element,locator))).findElements(locate(innerElement,innerLocator));
+			for(WebElement w : we) 
+				if(w.getText().contains(string)) {
+					w.click();
+					System.out.println("Clicked = " +w.getText());
+				}
+					
 		} catch (Exception e) {
-			System.out.println("No such element " + element);
+			extendTest.log(LogStatus.ERROR,"Error in FindElements" + element);
 		}	
 	}
-	//Calendar() - Calendar selection 
+
+	//Calendar() - Calendar selection - TODO
 	public void GetAtt(String element,Locator locator) {
 		try {
 			List<WebElement> we = (wd.findElement(locate(element,locator))).findElements(By.tagName("li"));
@@ -128,6 +127,14 @@ public class PageDriver extends InitialSetup {
 		} catch (Exception e) {
 			System.out.println("GetAtt: No such element " + element);
 		}	
-		
+	}
+	
+	//MoveToElement() - Action moveToElement  
+	public void MoveToElement(String element,Locator locator) {
+		try {
+			action.moveToElement(FindElement(locate(element,locator))).perform();
+		} catch (Exception e) {
+			extendTest.log(LogStatus.ERROR,"Error in MoveToElement" + element);
+		}	
 	}
 }

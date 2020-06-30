@@ -12,11 +12,10 @@ public class Reporting extends PageDriver implements ITestListener {
 	public PageDriver pd;
 
 	public void onTestStart(ITestResult result) {
-		System.out.println("Inside OnTestStart");		
+		
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("Inside OnTestSuccess");	
 		String path = System.getProperty("user.dir") + "\\screenshots\\Error.png";
 		extendTest.log(LogStatus.PASS, extendTest.addScreenCapture(path));
 		
@@ -53,7 +52,7 @@ public class Reporting extends PageDriver implements ITestListener {
 	 }
 
 	public void onFinish(ITestContext context) {
-		System.out.println("Inside OnFinish");
+
 		
 	}
 

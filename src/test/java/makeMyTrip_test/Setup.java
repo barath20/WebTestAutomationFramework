@@ -1,5 +1,6 @@
 package makeMyTrip_test;
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -20,12 +21,13 @@ public class Setup extends PageDriver {
   public void beforeSuite() {
 	  
 	  InitialSetup iS = new InitialSetup(); 
-	  System.out.println("Inside suite");
 	  pD = new PageDriver();
 	  pD.Driver(iS.SetWebPage("https://www.makemytrip.com/flights/"));
 	  
 	  extendReport = new ExtentReports("eReport.html");
 	  extendTest = extendReport.startTest("Hello Report");
+	  
+//	  action = new Actions(wd);
 
   }
   
