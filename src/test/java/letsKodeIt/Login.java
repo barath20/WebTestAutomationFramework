@@ -1,4 +1,4 @@
-package letKodeIt;
+package letsKodeIt;
 
 import org.testng.annotations.Test;
 

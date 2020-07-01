@@ -3,7 +3,6 @@ package makeMyTrip;
 import com.relevantcodes.extentreports.LogStatus;
 
 import framework.PageDriver;
-import framework.PageDriver.Locator;
 
 public class SearchFlight extends PageDriver {
 	
@@ -26,20 +25,20 @@ public class SearchFlight extends PageDriver {
 	}
 	
 	public void flightTo() throws Exception {
-		pageDriver.SendKeys("//input[@placeholder='To']","MAA",Locator.xpath);
+		pageDriver.SendKeys("//input[@id='toCity']","MAA",Locator.xpath);
 		pageDriver.Click("//p[contains(text(),'Chennai')]",Locator.xpath);
 		extendTest.log(LogStatus.INFO,"Inside flightTo()");
 	}
 	
 	public void departureDate() throws Exception {
 		pageDriver.Click("//span[contains(text(),'DEPARTURE')]",Locator.xpath);
-		pageDriver.Click("//div[@aria-label='Tue Jun 30 2020']", Locator.xpath);
+		pageDriver.Click("//div[@aria-label='Wed Jul 15 2020']", Locator.xpath);
 		extendTest.log(LogStatus.INFO,"Inside departureDate()");
 	}
 	
 	public void returnDate() throws Exception {
 		pageDriver.Click("//span[contains(text(),'RETURN')]",Locator.xpath);
-		pageDriver.Click("//div[@aria-label='Wed Jul 29 2020']", Locator.xpath);
+		pageDriver.Click("//div[@aria-label='Wed Aug 19 2020']", Locator.xpath);
 		extendTest.log(LogStatus.INFO,"Inside returnDate()");
 	}
 	

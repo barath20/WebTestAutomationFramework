@@ -2,12 +2,12 @@ package framework;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -25,10 +25,13 @@ public class PageDriver extends InitialSetup {
 	public enum Locator {xpath, name, id, linkText, partialLinkText, className, tagName, cssSelector}
 	public static ExtentReports extendReport;
 	public static ExtentTest extendTest;
-	public static Actions action;
+	public static Actions actions;
+	public static JavascriptExecutor javaScriptExecutor;
 	
-	public void Driver(WebDriver wd) {
-		this.wd = wd;
+	public void Driver(WebDriver webDriver) {
+		this.webDriver = webDriver;
+		actions = new Actions(webDriver);
+		javaScriptExecutor = (JavascriptExecutor) webDriver;
 	}
 
 	//	locate() - return By according to the locator
@@ -56,7 +59,7 @@ public class PageDriver extends InitialSetup {
 //	FindElement() - Expansion of Selenium findElement()
 	public WebElement FindElement(By by) {
 		try {
-			return wd.findElement(by);
+			return webDriver.findElement(by);
 		} catch (NoSuchElementException e) {
 			extendTest.log(LogStatus.ERROR,"No such element " + by);
 		}
@@ -96,7 +99,7 @@ public class PageDriver extends InitialSetup {
 		String filename = "Error.png";
 		String directory = System.getProperty("user.dir") + "//screenshots//";
 		try {
-			File sourceFile =((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
+			File sourceFile =((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(sourceFile,new File(directory + filename));
 		} catch (IOException e) {
 			extendTest.log(LogStatus.ERROR,"Error during screenshot...");
@@ -121,7 +124,7 @@ public class PageDriver extends InitialSetup {
 	//Calendar() - Calendar selection - TODO
 	public void GetAtt(String element,Locator locator) {
 		try {
-			List<WebElement> we = (wd.findElement(locate(element,locator))).findElements(By.tagName("li"));
+			List<WebElement> we = (webDriver.findElement(locate(element,locator))).findElements(By.tagName("li"));
 			for(WebElement w : we)
 			System.out.println(w.getText());
 		} catch (Exception e) {
@@ -129,10 +132,19 @@ public class PageDriver extends InitialSetup {
 		}	
 	}
 	
-	//MoveToElement() - Action moveToElement  
-	public void MoveToElement(String element,Locator locator) {
+	//MoveToElemenPerform() - Action moveToElement  
+	public void MoveToElementPerform(String element,Locator locator) {
 		try {
-			action.moveToElement(FindElement(locate(element,locator))).perform();
+			actions.moveToElement(FindElement(locate(element,locator))).perform();;
+		} catch (Exception e) {
+			extendTest.log(LogStatus.ERROR,"Error in MoveToElement" + element);
+		}	
+	}
+	
+	//MoveToElementClick() - Action moveToElement  
+	public void MoveToElementClick(String element,Locator locator) {
+		try {
+			actions.moveToElement(FindElement(locate(element,locator))).click();
 		} catch (Exception e) {
 			extendTest.log(LogStatus.ERROR,"Error in MoveToElement" + element);
 		}	

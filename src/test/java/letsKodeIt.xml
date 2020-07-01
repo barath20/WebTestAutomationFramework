@@ -6,8 +6,8 @@
   </listeners>
   <test name="Test">
     <classes>
-      <class name="letKodeIt.Setup"/>
-      <class name="letKodeIt.HomePage"/> 	
+      <class name="letsKodeIt.Setup"/>
+      <class name="letsKodeIt.HomePage"/> 	
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

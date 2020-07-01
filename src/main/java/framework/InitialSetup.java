@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 
 public class InitialSetup {
 	
-	public WebDriver wd;
+	public WebDriver webDriver;
 
 	public WebDriver SetWebPage(String url) {
 		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
-		wd = new ChromeDriver();
-		wd.get(url);
-		wd.manage().window().maximize();
-		return wd;
+		webDriver = new ChromeDriver();
+		webDriver.get(url);
+		webDriver.manage().window().maximize();
+		return webDriver;
 	}
 }

@@ -14,7 +14,7 @@
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
                        <!--  <suiteXmlFile>${Project}</suiteXmlFile> -->
-                       <suiteXmlFile>./src/test/java/makeMyTrip.xml</suiteXmlFile> 
+                       <suiteXmlFile>./src/test/java/letsKodeIt.xml</suiteXmlFile> 
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -82,6 +82,13 @@
 	    <artifactId>selenium-chrome-driver</artifactId>
 	    <version>3.141.59</version>
 	    <scope>test</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+	<dependency>
+		<groupId>org.seleniumhq.selenium</groupId>
+		<artifactId>selenium-remote-driver</artifactId>
+		<version>3.141.59</version>
 	</dependency>
 	
 </dependencies>
