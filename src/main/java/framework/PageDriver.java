@@ -16,17 +16,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class PageDriver extends InitialSetup {
-	
-	public enum Locator {xpath, name, id, linkText, partialLinkText, className, tagName, cssSelector}
-	public static ExtentReports extendReport;
-	public static ExtentTest extendTest;
-	public static Actions actions;
-	public static JavascriptExecutor javaScriptExecutor;
 	
 	public void Driver(WebDriver webDriver) {
 		this.webDriver = webDriver;
@@ -95,8 +87,8 @@ public class PageDriver extends InitialSetup {
 	}
 
 	// TakeScreenShot() - Takes screen shot
-	public void TakeScreenShot()  {
-		String filename = "Error.png";
+	public void TakeScreenShot(String fileName)  {
+		String filename = fileName + ".png";
 		String directory = System.getProperty("user.dir") + "//screenshots//";
 		try {
 			File sourceFile =((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
@@ -110,11 +102,15 @@ public class PageDriver extends InitialSetup {
 	public void FindElements(String element, Locator locator, String innerElement, Locator innerLocator, String string) {
 		try {
 			List<WebElement> we = (FindElement(locate(element,locator))).findElements(locate(innerElement,innerLocator));
-			for(WebElement w : we) 
+			System.out.println("Size of list = " +we.size());
+			for(WebElement w : we) {
+				System.out.println("For:Clicked = " +w.getText());
 				if(w.getText().contains(string)) {
 					w.click();
 					System.out.println("Clicked = " +w.getText());
 				}
+				
+			}
 					
 		} catch (Exception e) {
 			extendTest.log(LogStatus.ERROR,"Error in FindElements" + element);

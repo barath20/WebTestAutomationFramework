@@ -7,10 +7,12 @@ import com.relevantcodes.extentreports.ExtentReports;
 
 import framework.InitialSetup;
 import framework.PageDriver;
+import framework.Reporting;
 
 public class Setup extends PageDriver {
 	
 	public static PageDriver pageDriver;
+	public Reporting reporting;
 
 	
   @BeforeSuite
@@ -19,6 +21,8 @@ public class Setup extends PageDriver {
 	  InitialSetup iS = new InitialSetup(); 
 	  pageDriver = new PageDriver();
 	  pageDriver.Driver(iS.SetWebPage("https://learn.letskodeit.com/p/practice"));
+	  reporting = new Reporting();
+	  reporting.Reportings(pageDriver);
 	  
 	  extendReport = new ExtentReports("eReport.html");
 	  extendTest = extendReport.startTest("Hello Report");

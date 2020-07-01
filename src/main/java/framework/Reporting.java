@@ -7,29 +7,30 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class Reporting extends PageDriver implements ITestListener {
+public class Reporting extends InitialSetup implements ITestListener {
 	
-	public PageDriver pd;
-
+	private static PageDriver rpageDriver;
+	
+	public void Reportings(PageDriver pageDriver) {
+		rpageDriver = pageDriver;
+	}
+	
 	public void onTestStart(ITestResult result) {
 		
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		String path = System.getProperty("user.dir") + "\\screenshots\\Error.png";
-		extendTest.log(LogStatus.PASS, extendTest.addScreenCapture(path));
-		
+		extendTest.log(LogStatus.PASS, "Pass " + result.getName());
 	}
 
 	public void onTestFailure(ITestResult result)  {
 		extendTest.log(LogStatus.FAIL, "Inside Fail...");
 		try {
-          //  String screenshotPath = ExtentReportsClass.getScreenshot(wd, result.getName());
-            //To add it in the extent report
-//            extendTest.log(LogStatus.FAIL, extendTest.addScreenCapture(System.getProperty("user.dir") + "//screenshots//Error.png"));
+			rpageDriver.TakeScreenShot(result.getName());
+			String path = System.getProperty("user.dir") + "\\screenshots\\" + result.getName() + ".png";
+			extendTest.log(LogStatus.PASS, extendTest.addScreenCapture(path));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			extendTest.log(LogStatus.ERROR, "Error in OnTestFailure-TakeScreenshot");
 		}
 	}
 

@@ -7,12 +7,14 @@ import com.relevantcodes.extentreports.ExtentReports;
 
 import framework.InitialSetup;
 import framework.PageDriver;
+import framework.Reporting;
 import makeMyTrip.SearchFlight;
 
 public class Setup extends PageDriver {
 	
 	public static PageDriver pageDriver;
 	public SearchFlight searchFlight;
+	public Reporting reporting;
 	
   @BeforeSuite
   public void beforeSuite() {
@@ -20,6 +22,8 @@ public class Setup extends PageDriver {
 	  InitialSetup iS = new InitialSetup(); 
 	  pageDriver = new PageDriver();
 	  pageDriver.Driver(iS.SetWebPage("https://www.makemytrip.com/flights/"));
+	  reporting = new Reporting();
+	  reporting.Reportings(pageDriver);
 	  
 	  extendReport = new ExtentReports("eReport.html");
 	  extendTest = extendReport.startTest("Hello Report");	  

@@ -5,14 +5,14 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class HomePage extends Setup {
-	@Test
+	@Test(priority=0)
 	public void Radio() throws Throwable {
 		
 		  extendTest.log(LogStatus.INFO, "Inside Radio...");
 
 		  pageDriver.Click("//input[@id='bmwradio']",Locator.xpath);
   }
-	@Test
+	@Test(priority=1)
 	public void Select1() throws Throwable {
 		
 		extendTest.log(LogStatus.INFO, "Inside Select1...");
@@ -20,7 +20,7 @@ public class HomePage extends Setup {
 		pageDriver.Selects("//select[@id='carselect']",1,Locator.xpath);
 
   }
-	@Test
+	@Test(priority=2)
 	public void Select2() throws Throwable {
 		
 		extendTest.log(LogStatus.INFO, "Inside Select2...");
@@ -28,16 +28,16 @@ public class HomePage extends Setup {
 		pageDriver.Selects("//select[@id='multiple-select-example']",1,Locator.xpath);
 
   }
-	@Test
+	@Test(priority=3)
 	public void Click2() throws Throwable {
 		
 		extendTest.log(LogStatus.INFO, "Inside Click2...");
 
-		pageDriver.Click("//input[@id='hondacheck']", Locator.xpath);
+		pageDriver.Click("//input[@id='hondachec']", Locator.xpath);
 
   }
 	
-	@Test
+	@Test(priority=4)
 	public void MouseHover() throws Throwable {
 		
 		extendTest.log(LogStatus.INFO, "Inside MouseHover...");
