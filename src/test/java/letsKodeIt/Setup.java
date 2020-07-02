@@ -20,7 +20,7 @@ public class Setup extends PageDriver {
 	  
 	  InitialSetup iS = new InitialSetup(); 
 	  pageDriver = new PageDriver();
-	  pageDriver.Driver(iS.SetWebPage("https://learn.letskodeit.com/p/practice"));
+	  pageDriver.Driver(iS.SetWebPage("https://jqueryui.com/slider/"));
 	  reporting = new Reporting();
 	  reporting.Reportings(pageDriver);
 	  

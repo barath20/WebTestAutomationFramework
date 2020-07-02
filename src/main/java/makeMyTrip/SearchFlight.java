@@ -26,9 +26,11 @@ public class SearchFlight extends PageDriver {
 	
 	public void flightTo() throws Exception {
 		pageDriver.Click("//input[@id='toCity']",Locator.xpath);
+		Thread.sleep(2000);
+		javaScriptExecutor.executeScript("arguments[0].click();", "//input[@placeholder='To']");
 		pageDriver.SendKeys("//input[@placeholder='To']","MAA",Locator.xpath);
 		pageDriver.FindElements("//li[@role='option']",Locator.xpath,"//p[contains(@class,'font14')]",Locator.tagName, "Chennai");
-//		pageDriver.Click("//p[contains(text(),'Chennai')]",Locator.xpath);
+		pageDriver.Click("//p[contains(text(),'Chennai')]",Locator.xpath);
 		extendTest.log(LogStatus.INFO,"Inside flightTo()");
 	}
 	

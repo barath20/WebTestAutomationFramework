@@ -14,7 +14,7 @@
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
                        <!--  <suiteXmlFile>${Project}</suiteXmlFile> -->
-                       <suiteXmlFile>./src/test/java/makeMyTrip.xml</suiteXmlFile> 
+                       <suiteXmlFile>./src/test/java/LetsKodeIt.xml</suiteXmlFile> 
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

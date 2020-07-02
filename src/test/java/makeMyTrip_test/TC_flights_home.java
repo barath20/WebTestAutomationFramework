@@ -9,7 +9,7 @@ public class TC_flights_home extends Setup {
   public void BookFlight() throws Exception {
 	  searchFlight = new SearchFlight(pageDriver);
 	  searchFlight.clearLogin();
-	  searchFlight.flightFrom();
+//	  searchFlight.flightFrom();
 	  searchFlight.flightTo();
 	  searchFlight.departureDate();
 	  searchFlight.returnDate();
