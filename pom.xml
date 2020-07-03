@@ -14,7 +14,7 @@
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
                        <!--  <suiteXmlFile>${Project}</suiteXmlFile> -->
-                       <suiteXmlFile>./src/test/java/LetsKodeIt.xml</suiteXmlFile> 
+                       <suiteXmlFile>./src/test/java/makeMyTrip.xml</suiteXmlFile> 
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -91,5 +91,19 @@
 		<version>3.141.59</version>
 	</dependency>
 	
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-core</artifactId>
+		<version>2.13.3</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+	<dependency>
+    	<groupId>org.apache.logging.log4j</groupId>
+    	<artifactId>log4j-api</artifactId>
+    	<version>2.13.3</version>
+	</dependency>
+			
 </dependencies>
 </project>

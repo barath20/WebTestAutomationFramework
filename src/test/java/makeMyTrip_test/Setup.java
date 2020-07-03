@@ -25,7 +25,7 @@ public class Setup extends PageDriver {
 	  reporting = new Reporting();
 	  reporting.Reportings(pageDriver);
 	  
-	  extendReport = new ExtentReports("eReport.html");
+	  extendReport = new ExtentReports(System.getProperty("user.dir") + "\\Report\\eReport.html");
 	  extendTest = extendReport.startTest("Hello Report");	  
   }
   

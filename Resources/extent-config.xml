@@ -38,6 +38,11 @@
         });
       ]]>
     </scripts>
+	
+	<script xmlns="http://www.w3.org/1999/xhtml">
+		<![CDATA[
+			alert('Hello');
+		]]></script>
     
     <!-- custom styles -->
     <styles>

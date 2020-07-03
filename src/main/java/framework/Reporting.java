@@ -49,7 +49,7 @@ public class Reporting extends InitialSetup implements ITestListener {
          .addSystemInfo("Host Name", "Regression testing server")
          .addSystemInfo("Environment", "Test build V1.0")
          .addSystemInfo("User Name", "Barath");
-		 extendReport.loadConfig(new File(System.getProperty("user.dir")+"\\extent-config.xml"));
+		 extendReport.loadConfig(new File(System.getProperty("user.dir")+"\\Resources\\extent-config.xml"));
 	 }
 
 	public void onFinish(ITestContext context) {

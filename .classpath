@@ -22,7 +22,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="Drivers"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -46,5 +45,7 @@
 	<classpathentry kind="lib" path="D:/Software/cH/testng-6.8.8.jar"/>
 	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
 	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Software/cH/log4j-core-2.13.3.jar"/>
+	<classpathentry kind="lib" path="D:/Software/cH/log4j-api-2.13.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
