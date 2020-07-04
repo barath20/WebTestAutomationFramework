@@ -30,9 +30,12 @@ public class Setup extends PageDriver {
 	  InitialSetup iS = new InitialSetup(); 
 	  pageDriver = new PageDriver();
 	  configReader = new ConfigReader();
-	  pageDriver.Driver(iS.SetWebPage(configReader.getPropValues("url")));
-	  reporting = new Reporting();
-	  reporting.Reportings(pageDriver);
+	  
+	  System.out.println("URL in setup file = " + configReader.getPropValues("url"));
+//	  pageDriver.Driver(iS.SetWebPage(configReader.getPropValues("url")));
+//	  pageDriver.Driver(iS.SetWebPage("https://www.makemytrip.com/flights/"));
+//	  reporting = new Reporting();
+//	  reporting.Reportings(pageDriver);
 	  
 	  // Date and Time for Extend Report file name
 	  unFormatedDateTime = LocalDateTime.now();
