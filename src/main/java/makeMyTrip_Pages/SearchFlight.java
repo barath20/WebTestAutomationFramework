@@ -1,4 +1,8 @@
-package makeMyTrip;
+package makeMyTrip_Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -6,12 +10,26 @@ import framework.PageDriver;
 
 public class SearchFlight extends PageDriver {
 	
-	public PageDriver pageDriver;
+	public static PageDriver pageDriver;
 	
 	public SearchFlight(PageDriver pageDriver) {
 		this.pageDriver = pageDriver;
 		
+		
 	}
+	
+	@FindBy(xpath="//input[@id='fromCity']")
+	private static WebElement fromCity;
+	
+	
+
+	
+	public static void clickFromCity()
+	{
+		fromCity.click();
+		
+	}
+	
 	public void clearLogin() throws Exception {
 		pageDriver.Click("//li[@data-cy='account']",Locator.xpath);
 	}

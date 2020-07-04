@@ -3,29 +3,43 @@ package makeMyTrip_test;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import com.relevantcodes.extentreports.ExtentReports;
 
 import framework.InitialSetup;
 import framework.PageDriver;
 import framework.Reporting;
-import makeMyTrip.SearchFlight;
+import makeMyTrip_Pages.SearchFlight;
+import utils.ConfigReader;
 
 public class Setup extends PageDriver {
 	
 	public static PageDriver pageDriver;
 	public SearchFlight searchFlight;
 	public Reporting reporting;
+	private LocalDateTime unFormatedDateTime;
+	private String formatedDateTime;
+	private String extendReportPathAndName;
+	private ConfigReader configReader;
 	
   @BeforeSuite
-  public void beforeSuite() {
+  public void beforeSuite() throws IOException {
 	  
 	  InitialSetup iS = new InitialSetup(); 
 	  pageDriver = new PageDriver();
-	  pageDriver.Driver(iS.SetWebPage("https://www.makemytrip.com/flights/"));
+	  configReader = new ConfigReader();
+	  pageDriver.Driver(iS.SetWebPage(configReader.getPropValues("url")));
 	  reporting = new Reporting();
 	  reporting.Reportings(pageDriver);
 	  
-	  extendReport = new ExtentReports(System.getProperty("user.dir") + "\\Report\\eReport.html");
+	  // Date and Time for Extend Report file name
+	  unFormatedDateTime = LocalDateTime.now();
+	  formatedDateTime = unFormatedDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm-ss"));
+	  
+	  extendReportPathAndName = System.getProperty("user.dir") + "\\Report\\eReport "+ formatedDateTime +".html";
+	  extendReport = new ExtentReports(extendReportPathAndName);
 	  extendTest = extendReport.startTest("Hello Report");	  
   }
   

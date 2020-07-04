@@ -1,7 +1,8 @@
 package makeMyTrip_test;
 
 import org.testng.annotations.Test;
-import makeMyTrip.SearchFlight;
+
+import makeMyTrip_Pages.SearchFlight;
 
 public class TC_flights_home extends Setup {
 	
@@ -10,7 +11,7 @@ public class TC_flights_home extends Setup {
 	  searchFlight = new SearchFlight(pageDriver);
 	  searchFlight.clearLogin();
 	  searchFlight.flightFrom();
-//	  searchFlight.flightTo();
+	  searchFlight.flightTo();
 	  searchFlight.departureDate();
 	  searchFlight.returnDate();
 	  searchFlight.flightSearch();

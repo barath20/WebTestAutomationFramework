@@ -2,4 +2,5 @@ D:\eclipse_workspace\SeleniumFramework\src\main\java\framework\PageDriver.java
 D:\eclipse_workspace\SeleniumFramework\src\main\java\framework\Reporting.java
 D:\eclipse_workspace\SeleniumFramework\src\main\java\framework\InitialSetup.java
 D:\eclipse_workspace\SeleniumFramework\src\main\java\framework\ReadWriteExcel.java
-D:\eclipse_workspace\SeleniumFramework\src\main\java\makeMyTrip\SearchFlight.java
+D:\eclipse_workspace\SeleniumFramework\src\main\java\utils\ConfigReader.java
+D:\eclipse_workspace\SeleniumFramework\src\main\java\makeMyTrip_Pages\SearchFlight.java

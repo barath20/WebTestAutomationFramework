@@ -6,6 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="Resources"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -47,5 +48,6 @@
 	<classpathentry kind="lib" path="D:/Software/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="D:/Software/cH/log4j-core-2.13.3.jar"/>
 	<classpathentry kind="lib" path="D:/Software/cH/log4j-api-2.13.3.jar"/>
+	<classpathentry kind="lib" path="D:/Software/cH/selenium-chrome-driver-3.141.59.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
