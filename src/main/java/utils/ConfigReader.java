@@ -12,12 +12,14 @@ public class ConfigReader {
 	public static String currentRelativePath;
 	
 	public ConfigReader(String currentRelativePath) {
-		this.currentRelativePath =currentRelativePath;
+		ConfigReader.currentRelativePath =currentRelativePath;
 	}
 
 	public String getPropValues(String key) throws IOException {
 		
 		String value = null;
+		
+		// TODO - make it more dynamic
 		Path path = Paths.get(System.getProperty("user.dir")+"\\src\\test\\java\\makeMyTrip_test\\", "config.properties");
 //		Path path = Paths.get(System.getProperty(currentRelativePath, "config.properties"));
 		
