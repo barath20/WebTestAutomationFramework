@@ -25,8 +25,9 @@ public class Reporting extends InitialSetup implements ITestListener {
 
 	public void onTestSuccess(ITestResult result) {
 		extendTest.log(LogStatus.PASS, "Pass " + result.getName());
+		// read the value from config.properties file to decide about taking screenshot for pass test cases
 		try {
-			if(configReader.getPropValues("screenShot").equals("PASS"))
+			if(configReader.getPropValues("screenShot").equals("PASS"))  
 			try {
 				rpageDriver.TakeScreenShot(result.getName());
 				String path = System.getProperty("user.dir") + "\\screenshots\\" + result.getName() + ".png";
@@ -52,8 +53,7 @@ public class Reporting extends InitialSetup implements ITestListener {
 	}
 
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+		extendTest.log(LogStatus.SKIP, "Test skipped" + result.getName());
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
