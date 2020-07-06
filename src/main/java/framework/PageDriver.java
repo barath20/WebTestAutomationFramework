@@ -26,60 +26,28 @@ public class PageDriver extends InitialSetup {
 		javaScriptExecutor = (JavascriptExecutor) webDriver;
 	}
 
-	//	locate() - return By according to the locator
-	@SuppressWarnings("finally")
-	public By locate(String element,Locator locator) throws Exception {
-		try {
-			if(locator == Locator.xpath) return By.xpath(element);
-			else if(locator == Locator.name) return By.name(element);
-			else if(locator == Locator.id) return By.id(element);
-			else if(locator == Locator.linkText) return By.linkText(element);
-			else if(locator == Locator.partialLinkText) return By.partialLinkText(element);
-			else if(locator == Locator.className) return By.className(element);
-			else if(locator == Locator.tagName) return By.tagName(element);
-			else if(locator == Locator.cssSelector) return By.cssSelector(element);
-			else throw new Exception();
-		}
-		catch(Exception e) {
-			extendTest.log(LogStatus.ERROR,"No such locator " + locator);
-		}
-		finally {
-			return By.xpath(element);
-		}
-	}
-	
-//	FindElement() - Expansion of Selenium findElement()
-	public WebElement FindElement(By by) {
-		try {
-			return webDriver.findElement(by);
-		} catch (NoSuchElementException e) {
-			extendTest.log(LogStatus.ERROR,"Error in FindElement() " + by);
-		}
-		return null;
-	}
-	
 	//	Click() - Expansion of Selenium click() - For radioButton and checkBox
-	public void Click(String element,Locator locator) throws Exception {
+	public void Click(WebElement element) throws Exception {
 		try {
-			FindElement(locate(element,locator)).click();
+			element.click();
 		} catch (NoSuchElementException e) {
 			extendTest.log(LogStatus.ERROR,"Error in Click() " + element);
 		}
 	}
 	
 	//	SendKeys() - Expansion of Selenium SendKeys()
-	public void SendKeys(String element, String keys,Locator locator) {
+	public void SendKeys(WebElement element, String keys) {
 		try {
-			FindElement(locate(element,locator)).sendKeys(keys);
+			element.sendKeys(keys);
 		} catch (Exception e) {
 			extendTest.log(LogStatus.ERROR,"Error in SendKeys() " + element);
 		}	
 	}
 	
 	//	Selects() - Expansion of Selenium Select()
-	public void Selects(String element, int position,Locator locator) {
+	public void Selects(WebElement element, int position) {
 		try {
-			Select sl = new Select(FindElement(locate(element,locator)));
+			Select sl = new Select(element);
 			sl.selectByIndex(position);
 		} catch (Exception e) {
 			extendTest.log(LogStatus.ERROR,"Error in Selects() " + element);
@@ -99,26 +67,26 @@ public class PageDriver extends InitialSetup {
 	}
 	
 	//FindElements() - Expansion of Selenium findelements()
-	public void FindElements(String element, Locator locator, String innerElement, Locator innerLocator, String string) {
-		try {
-			List<WebElement> we = (FindElement(locate(element,locator))).findElements(locate(innerElement,innerLocator));
-			System.out.println("Size of list = " +we.size());
-			for(WebElement w : we) {
-				System.out.println("For:Clicked = " +w.getText());
-				if(w.getText().contains(string)) {
-					System.out.println("Clicked = " +w.getText());
-					w.click();
-				}
-			}	
-		} catch (Exception e) {
-			extendTest.log(LogStatus.ERROR,"Error in FindElements" + element);
-		}	
+	public void FindElements(WebElement element, WebElement innerElement, String string) {
+//		try {
+//			List<WebElement> we = ;
+//			System.out.println("Size of list = " +we.size());
+//			for(WebElement w : we) {
+//				System.out.println("For:Clicked = " +w.getText());
+//				if(w.getText().contains(string)) {
+//					System.out.println("Clicked = " +w.getText());
+//					w.click();
+//				}
+//			}	
+//		} catch (Exception e) {
+//			extendTest.log(LogStatus.ERROR,"Error in FindElements" + element);
+//		}	
 	}
 
 	//Calendar() - Calendar selection - TODO
-	public void GetAtt(String element,Locator locator) {
+	public void GetAtt(WebElement element) {
 		try {
-			List<WebElement> we = (webDriver.findElement(locate(element,locator))).findElements(By.tagName("li"));
+			List<WebElement> we = element.findElements(By.tagName("li"));
 			for(WebElement w : we)
 			System.out.println(w.getText());
 		} catch (Exception e) {
@@ -127,18 +95,18 @@ public class PageDriver extends InitialSetup {
 	}
 	
 	//MoveToElemenPerform() - Action moveToElement - Perform 
-	public void MoveToElementPerform(String element,Locator locator) {
+	public void MoveToElementPerform(WebElement element) {
 		try {
-			actions.moveToElement(FindElement(locate(element,locator))).perform();;
+			actions.moveToElement(element).perform();;
 		} catch (Exception e) {
 			extendTest.log(LogStatus.ERROR,"Error in MoveToElementPerform() " + element);
 		}	
 	}
 	
 	//MoveToElementClick() - Action moveToElement  - Click
-	public void MoveToElementClick(String element,Locator locator) {
+	public void MoveToElementClick(WebElement element) {
 		try {
-			actions.moveToElement(FindElement(locate(element,locator))).click().perform();
+			actions.moveToElement(element).click().perform();
 //			actions.click(FindElement(locate(element,locator)));
 		} catch (Exception e) {
 			extendTest.log(LogStatus.ERROR,"Error in MoveToElementClick() " + element);
@@ -146,11 +114,11 @@ public class PageDriver extends InitialSetup {
 	}
 	
 	//DragAndDrop() - Drag and drop
-	public void DragAndDrop(String fromElement,Locator fromLocator, String toElement,Locator toLocator) {
+	public void DragAndDrop(WebElement fromElement, WebElement toElement) {
 		try {
 			Thread.sleep(3000);
 			webDriver.switchTo().frame(0);
-			actions.dragAndDrop(FindElement(locate(fromElement,fromLocator)), FindElement(locate(toElement,toLocator))).build().perform();
+			actions.dragAndDrop(fromElement,toElement).build().perform();
 
 		} catch (Exception e) {
 			extendTest.log(LogStatus.ERROR,"Error in DragAndDrop() " + fromElement + toElement);
@@ -158,14 +126,14 @@ public class PageDriver extends InitialSetup {
 	}
 	
 	//Slider() - Slider
-	public void Slider(String element,Locator locator) {
+	public void Slider(WebElement element) {
 		try {
 			Thread.sleep(3000);
 			webDriver.switchTo().frame(0);
-			actions.dragAndDropBy(FindElement(locate(element,locator)), 100, 0).build().perform();
+			actions.dragAndDropBy(element, 100, 0).build().perform();
 
 		} catch (Exception e) {
-			extendTest.log(LogStatus.ERROR,"Error in DragAndDrop() " + element + locator);
+			extendTest.log(LogStatus.ERROR,"Error in DragAndDrop() " + element);
 		}	
 	}
 }

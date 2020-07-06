@@ -61,7 +61,7 @@ public class HomePage extends Setup {
 	@Test(priority=4) // https://jqueryui.com/slider/
 	public void slider() throws Throwable {
 
-		pageDriver.Slider("//div[@id='slider']/span", Locator.xpath);
+//		pageDriver.Slider("//div[@id='slider']/span", Locator.xpath);
 	}
 	
 }

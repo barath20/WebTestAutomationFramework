@@ -9,19 +9,25 @@ import java.util.Properties;
 
 public class ConfigReader {
 	
+	public static String currentRelativePath;
+	
+	public ConfigReader(String currentRelativePath) {
+		this.currentRelativePath =currentRelativePath;
+	}
+
 	public String getPropValues(String key) throws IOException {
 		
 		String value = null;
 		Path path = Paths.get(System.getProperty("user.dir")+"\\src\\test\\java\\makeMyTrip_test\\", "config.properties");
+//		Path path = Paths.get(System.getProperty(currentRelativePath, "config.properties"));
 		
 		try (InputStream input = Files.newInputStream(path)) {
 
             Properties properties = new Properties();
             properties.load(input);        
             value = (String) properties.get(key);
-            System.out.println("URL = "+value);
 
-        } catch (IOException ex) {
+		} catch (IOException ex) {
             ex.printStackTrace();
         }
 		return value;
