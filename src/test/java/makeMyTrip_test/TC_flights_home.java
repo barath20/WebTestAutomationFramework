@@ -1,5 +1,7 @@
 package makeMyTrip_test;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.Test;
 
 import makeMyTrip_Pages.SearchFlight;
@@ -15,5 +17,6 @@ public class TC_flights_home extends Setup {
 //	  searchFlight.departureDate();
 //	  searchFlight.returnDate();
 //	  searchFlight.flightSearch();
+//	  assertEquals(0, 1);
   }
 }
