@@ -57,7 +57,7 @@ public class Setup extends InitialSetup {
 	  // Extend report name and initalize
 	  extendReportPathAndName = System.getProperty("user.dir") + "\\Report\\eReport "+ formatedDateTime +".html";
 	  extendReport = new ExtentReports(extendReportPathAndName);
-	  extendTest = extendReport.startTest("Hello Report");	  
+	  
   }
   
   @AfterSuite

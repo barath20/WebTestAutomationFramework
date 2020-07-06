@@ -12,15 +12,15 @@ import utils.ConfigReader;
 
 public class Reporting extends InitialSetup implements ITestListener {
 	
-	private static PageDriver rpageDriver;
+	private static PageDriver reportingPageDriver;
 	ConfigReader configReader = new ConfigReader();
 	
 	public void Reportings(PageDriver pageDriver) {
-		rpageDriver = pageDriver;
+		reportingPageDriver = pageDriver;
 	}
 	
 	public void onTestStart(ITestResult result) {
-		
+		  extendTest = extendReport.startTest("Test Case: " + result.getName());		
 	}
 
 	public void onTestSuccess(ITestResult result) {
@@ -29,7 +29,7 @@ public class Reporting extends InitialSetup implements ITestListener {
 		try {
 			if(configReader.getPropValues("screenShot").equals("PASS"))  
 			try {
-				rpageDriver.TakeScreenShot(result.getName());
+				reportingPageDriver.TakeScreenShot(result.getName());
 				String path = System.getProperty("user.dir") + "\\screenshots\\" + result.getName() + ".png";
 				extendTest.log(LogStatus.PASS, extendTest.addScreenCapture(path));
 			} catch (Exception e) {
@@ -44,7 +44,7 @@ public class Reporting extends InitialSetup implements ITestListener {
 	public void onTestFailure(ITestResult result)  {
 		extendTest.log(LogStatus.FAIL, "Inside Fail...");
 			try {
-				rpageDriver.TakeScreenShot(result.getName());
+				reportingPageDriver.TakeScreenShot(result.getName());
 				String path = System.getProperty("user.dir") + "\\screenshots\\" + result.getName() + ".png";
 				extendTest.log(LogStatus.PASS, extendTest.addScreenCapture(path));
 			} catch (Exception e) {

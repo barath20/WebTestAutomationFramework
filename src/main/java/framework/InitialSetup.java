@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
 public class InitialSetup {
 	
 	public WebDriver webDriver;
-	public enum Locator {xpath, name, id, linkText, partialLinkText, className, tagName, cssSelector}
 	public static ExtentReports extendReport;
 	public static ExtentTest extendTest;
 	public static Actions actions;
