@@ -1,11 +1,16 @@
 package framework;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+
+import java.util.concurrent.TimeUnit;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,9 +32,13 @@ public class InitialSetup {
 		System.setProperty("log4j.configurationFile", "logFile.log");
 		
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\Resources\\chromedriver.exe");
-		webDriver = new ChromeDriver();
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.setPageLoadStrategy(PageLoadStrategy.NONE);
+		webDriver = new ChromeDriver(chromeOptions);
 		webDriver.get(url);
 		webDriver.manage().window().maximize();
+		webDriver.manage().deleteAllCookies();
+		webDriver.manage().timeouts().pageLoadTimeout(45, TimeUnit.SECONDS);
 		return webDriver;
 	}
 }
