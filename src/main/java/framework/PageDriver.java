@@ -24,6 +24,40 @@ public class PageDriver extends InitialSetup {
 		javaScriptExecutor = (JavascriptExecutor) webDriver;
 	}
 
+//	1. Browser Commands
+//
+//	Get command
+//	Get Title command
+//	Get Current URL command
+//	Get Page Source Command
+//	Close command
+//	Quit command
+//2. Navigation Commands
+//
+//	Navigate to command
+//	Back command
+//	Forward command
+//	Refresh commands
+//3. WebElement Commands
+//
+//	Clear command
+//	Click command - Done
+//	GetText command
+//	IsSelected command
+//	IsEnabled command
+//	IsDisplayed command
+//	getSize command
+//	GetCssValue command
+//	getLocation command
+//	Submit command
+//	getAttribute command
+//	gefTagName command
+//	SendKeys command - Done
+//	Select command* - Done
+
+
+
+
 	//	Click() - Expansion of Selenium click() - For radioButton and checkBox
 	public void Click(WebElement element) throws Exception {
 		try {
