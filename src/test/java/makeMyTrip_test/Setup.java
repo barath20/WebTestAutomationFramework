@@ -9,7 +9,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import com.relevantcodes.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import framework.InitialSetup;
 import framework.PageDriver;
@@ -18,7 +19,7 @@ import makeMyTrip_Pages.SearchFlight;
 import utils.ConfigReader;
 
 public class Setup extends InitialSetup {
-	
+
 	public static PageDriver pageDriver;
 	public SearchFlight searchFlight;
 	public Reporting reporting;
@@ -27,42 +28,46 @@ public class Setup extends InitialSetup {
 	private String extendReportPathAndName;
 	private ConfigReader configReader;
 	public static WebDriver webDriver;
-	
-  @BeforeSuite
-  public void beforeSuite() throws IOException {
-	  
-	  InitialSetup iS = new InitialSetup(); 
-	  pageDriver = new PageDriver();
-	  reporting = new Reporting();
-	  
-	  //Get url from config.properties file
-	  Path path = Paths.get("");
-	  String currentRelativePath = path.toAbsolutePath().toString(); 
-	  configReader = new ConfigReader(currentRelativePath);
-	  configReader.getPropValues("url");
-	  
-	  // Launch the webpage
-	  webDriver = iS.SetWebPage(configReader.getPropValues("url"));
-	  
-	  // Attach the webDriver to the pageDriver
-	  pageDriver.Driver(webDriver);
-	  
-	  // Attach the pagedriver to the reporting
-	  reporting.Reportings(pageDriver);
-	  
-	  // Date and Time for Extend Report file name
-	  unFormatedDateTime = LocalDateTime.now();
-	  formatedDateTime = unFormatedDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm-ss"));
-	  
-	  // Extend report name and initalize
-	  extendReportPathAndName = System.getProperty("user.dir") + "\\Report\\eReport "+ formatedDateTime +".html";
-	  extendReport = new ExtentReports(extendReportPathAndName);
-	  
-  }
-  
-  @AfterSuite
-  public void afterSuite() {
-	  extendReport.endTest(extendTest);
-	  extendReport.flush();
-  }
+
+	@BeforeSuite
+	public void beforeSuite() throws IOException {
+
+		InitialSetup iS = new InitialSetup();
+		pageDriver = new PageDriver();
+		reporting = new Reporting();
+
+		// Get url from config.properties file
+		Path path = Paths.get("");
+		String currentRelativePath = path.toAbsolutePath().toString();
+		configReader = new ConfigReader(currentRelativePath);
+		configReader.getPropValues("url");
+
+		// Launch the webpage
+		webDriver = iS.SetWebPage(configReader.getPropValues("url"));
+
+		// Attach the webDriver to the pageDriver
+		pageDriver.Driver(webDriver);
+
+		// Attach the pagedriver to the reporting
+		reporting.Reportings(pageDriver);
+
+		// Date and Time for Extend Report file name
+		unFormatedDateTime = LocalDateTime.now();
+		formatedDateTime = unFormatedDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm-ss"));
+
+		// Extend report name and initalize
+		// Fix path for report
+		extendReportPathAndName = System.getProperty("user.dir") + "/Report/eReport " + formatedDateTime + ".html";
+
+		ExtentSparkReporter spark = new ExtentSparkReporter(extendReportPathAndName);
+		extendReport = new ExtentReports();
+		extendReport.attachReporter(spark);
+
+	}
+
+	@AfterSuite
+	public void afterSuite() {
+		// extendReport.endTest(extendTest); // Not needed in v5
+		extendReport.flush();
+	}
 }
