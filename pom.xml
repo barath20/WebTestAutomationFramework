@@ -3,6 +3,13 @@
   <groupId>seleniumFW</groupId>
   <artifactId>RedCardinal</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
   <build>
           <plugins>
             <!-- Following plugin executes the testng tests -->
@@ -14,7 +21,7 @@
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
                        <!--  <suiteXmlFile>${Project}</suiteXmlFile> -->
-                       <suiteXmlFile>./src/test/java/makeMyTrip.xml</suiteXmlFile> 
+                       <suiteXmlFile>testng.xml</suiteXmlFile> 
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -23,8 +30,7 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.11.0</version>
 					<configuration>
-						<source>11</source>
-						<target>11</target>
+						<release>11</release>
 					</configuration>
 				</plugin>
             <!-- Compiler plugin configures the java version to be usedfor compiling 

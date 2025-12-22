@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Comprehensive Test Page</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .hover-target {
+            padding: 10px;
+            background-color: #eee;
+            border: 1px solid #999;
+            display: inline-block;
+        }
+
+        .hover-target:hover {
+            background-color: #ffffcc;
+        }
+
+        #clickResult {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Automation Practice Page</h1>
+
+    <!-- Form Section -->
+    <div class="section">
+        <h2>Form Interactions</h2>
+        <input type="text" id="nameInput" placeholder="Enter Name">
+        <button id="clickBtn" onclick="document.getElementById('clickResult').innerText = 'Clicked!'">Click Me</button>
+        <span id="clickResult"></span>
+    </div>
+
+    <!-- Dropdown Section -->
+    <div class="section">
+        <h2>Dropdown</h2>
+        <select id="fruitSelect">
+            <option value="apple">Apple</option>
+            <option value="banana">Banana</option>
+            <option value="orange">Orange</option>
+        </select>
+    </div>
+
+    <!-- List Section -->
+    <div class="section">
+        <h2>List Items</h2>
+        <ul id="itemList">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <!-- Hover Section -->
+    <div class="section">
+        <h2>Hover Action</h2>
+        <div id="hoverDiv" class="hover-target">Hover over me</div>
+        <a href="#" id="hoverLink" class="hover-target" onclick="alert('Hover Clicked!')">Hover Link</a>
+    </div>
+
+    <!-- IFrame Section for DragDrop and Slider -->
+    <div class="section">
+        <h2>IFrame (Drag & Drop, Slider)</h2>
+        <iframe src="iframe_content.html" width="500" height="400" style="border:1px solid black;"></iframe>
+    </div>
+
+</body>
+
+</html>
