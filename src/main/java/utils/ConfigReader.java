@@ -23,8 +23,7 @@ public class ConfigReader {
 		String value = null;
 
 		// TODO - make it more dynamic
-		Path path = Paths.get(System.getProperty("user.dir"), "src", "test", "java", "makeMyTrip_test",
-				"config.properties");
+		Path path = Paths.get(System.getProperty("user.dir"), "src", "test", "resources", "config.properties");
 		// Path path = Paths.get(System.getProperty(currentRelativePath,
 		// "config.properties"));
 

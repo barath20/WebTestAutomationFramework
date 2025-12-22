@@ -84,4 +84,11 @@ public class ComprehensiveTests extends TestSetup {
         cp.captureScreenshot("ComprehensiveTest_End");
         extendTest.log(Status.INFO, "Captured Screenshot");
     }
+
+    @Test(priority = 6)
+    public void testIntentionalFailure() {
+        extendTest = extendReport.createTest("Intentional Failure Test");
+        extendTest.log(Status.INFO, "This test is designed to fail to verify screenshot capture.");
+        Assert.fail("Intentional failure for screenshot verification.");
+    }
 }
