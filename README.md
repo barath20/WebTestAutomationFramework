@@ -1,6 +1,6 @@
-# Selenium Framework
+# Web Test Automation Framework
 
-This project is a Selenium Test Automation Framework using Java, TestNG, and Maven.
+This project is a Web Test Automation Framework using Selenium, Java, TestNG, and Maven.
 
 ## Prerequisites
 
