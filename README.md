@@ -1,4 +1,4 @@
-# Selenium Framework - RedCardinal
+# Selenium Framework
 
 This project is a Selenium Test Automation Framework using Java, TestNG, and Maven.
 
