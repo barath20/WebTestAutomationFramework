@@ -50,3 +50,7 @@ This command will:
 *   **Cross-Platform**: Runs on Windows, Mac, and Linux.
 *   **ExtentReports 5**: Rich HTML reporting.
 *   **Log4j 2**: Secure and robust logging.
+
+## Note
+
+One test case fail purposefully to show screenshots in the report generation.
